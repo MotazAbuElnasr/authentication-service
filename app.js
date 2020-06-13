@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const logger = require("morgan");
 require("express-async-errors");
 require("./db");
-const todoRouter = require("./routes/todos");
+const indexRouter = require("./routes/index");
 
 const app = express();
 app.use(logger("dev"));
@@ -12,10 +12,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/todo", todoRouter);
+app.use("/auth", indexRouter);
 // error handler
 app.use(function (err, req, res, next) {
-  console.error(err.message);
+  console.error(err);
   res.status(err.status || 500);
   res.json(err);
 });

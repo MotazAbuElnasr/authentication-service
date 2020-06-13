@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
-const { promisify } = require("util");
 const { jwtSecret, saltWorkFactor } = require("../config");
 const { pick } = require("../helpers/generalHelpers");
 const signJWT = promisify(jwt.sign);
@@ -31,7 +30,7 @@ const userSchema = new mongoose.Schema(
 
 const hashPassword = async function (next) {
   const salt = await genSalt(saltWorkFactor);
-  this.password = await hash(password, salt);
+  this.password = await hash(this.password, salt);
   next();
 };
 

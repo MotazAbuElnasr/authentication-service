@@ -7,7 +7,7 @@ const LoginError = AuthenticationError(
   "Either username or password or both are not correct"
 );
 router.post("/register", async (req, res, next) => {
-  const user = await User.insertOne(req.body);
+  const user = await new User(req.body).save();
   res.json(user);
 });
 
