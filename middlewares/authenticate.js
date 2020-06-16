@@ -2,7 +2,7 @@ const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
 const verifyJWT = promisify(jwt.verify);
 const { jwtSecret } = require('../config')
-const { AuthenticationError } = require("../errors/ErrorsFactory")()
+const { AuthenticationError } = require("node-errors-factory")("User")
 
 module.exports = (req, res, next) => {
   const { token } = req.headers;

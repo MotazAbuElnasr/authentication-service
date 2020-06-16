@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
-const { AuthenticationError } = require("../errors/ErrorsFactory");
+const { AuthenticationError } = require("node-errors-factory")("User");
 
 const LoginError = AuthenticationError(
   "Either username or password or both are not correct"
