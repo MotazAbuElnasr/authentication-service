@@ -9,7 +9,7 @@ const genSalt = promisify(bcrypt.genSalt);
 const hash = promisify(bcrypt.hash);
 const compare = promisify(bcrypt.compare);
 
-const userPicker = pick(["firstName", "lastName", "username", "email"]);
+const userPicker = pick(["firstName", "lastName", "username", "email", "_id"]);
 
 const userSchema = new mongoose.Schema(
   {
