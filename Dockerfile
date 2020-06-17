@@ -15,4 +15,4 @@ COPY . .
 
 EXPOSE 3000
 
-CMD node .
+CMD node bin/www
